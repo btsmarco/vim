@@ -19,7 +19,8 @@ set foldenable
 set foldmethod=syntax
 set foldmethod=indent
 au BufRead,BufNewFile *.t set filetype=cpp
-nmap z za
+nmap b za
+nmap t zR
 set showcmd         " display incomplete commands
 "set hlsearch        " highlight searches
 set nostartofline   " don't jump to first character when paging
@@ -52,3 +53,6 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
   endif
 nmap j gj
 nmap k gk
+autocmd vimenter * NERDTree
+let g:NERDTreeDirArrows=0
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
